@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObjectTracker : MonoBehaviour
 {
     public static ObjectTracker Instance;
-
     public List<GameObject> objectToFind;
 
     void Start()
