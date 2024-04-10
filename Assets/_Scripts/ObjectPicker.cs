@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
+using DG.Tweening;
 
 public class ObjectPicker : MonoBehaviour
 {
@@ -21,9 +23,14 @@ public class ObjectPicker : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 500, intractableLayer))
             {
-                Debug.Log(hit.transform.name);
-                ObjectTracker.Instance.objectFound(hit.transform.gameObject);
+                FoundAnObject(hit.transform.gameObject);
             }
         }
+    }
+
+    public void FoundAnObject(GameObject g)
+    {
+        g.SetActive(false);
+        ObjectTracker.Instance.objectFound(g);
     }
 }
