@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class ObjectTracker : MonoBehaviour
 {
@@ -13,15 +15,16 @@ public class ObjectTracker : MonoBehaviour
     void Start()
     {
         Instance = this;
-        Vector3 pos = new Vector3(-823f, 560, 0); 
+        Vector3 pos = new Vector3(0, 480, 0); 
 
         for (int i = 0; i < objectToFind.Count; i++)
         {
-            pos.y -= 55;
             TextMeshProUGUI t = Instantiate(itemsText, pos, Quaternion.identity, itemsTextHolderCanvas).GetComponent<TextMeshProUGUI>();
             t.rectTransform.localPosition = pos;
             t.name = objectToFind[i].name;
             t.text = objectToFind[i].name;
+
+            pos.y -= 55;
         }
     }
     
@@ -39,7 +42,11 @@ public class ObjectTracker : MonoBehaviour
         {
             if (itemsTextHolderCanvas.GetChild(i).name == g.name)
             {
-                itemsTextHolderCanvas.GetChild(i).gameObject.SetActive(false);
+                Image FillImage = itemsTextHolderCanvas.GetChild(i).GetChild(0).GetComponent<Image>();
+
+                Sequence s = DOTween.Sequence();
+                s.Append(itemsTextHolderCanvas.GetChild(i).transform.DOScale(1.4f, 0.20f).SetEase(Ease.OutSine).SetLoops(2, LoopType.Yoyo));
+                s.Append(DOTween.To(() => FillImage.fillAmount, x => FillImage.fillAmount = x, 1f, 0.35f));
             }
         }
 

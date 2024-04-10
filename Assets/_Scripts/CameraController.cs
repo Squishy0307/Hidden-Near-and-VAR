@@ -17,6 +17,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] float dragThreshold = 20f;
     [SerializeField] float wallDetectionRadius = 10f;
     [SerializeField] LayerMask wallLayer;
+    [SerializeField] AnimationCurve rotationEase;
 
     private void Start()
     {
@@ -31,12 +32,12 @@ public class CameraController : MonoBehaviour
         gameObject.transform.Translate(0, 0, translate * ROTSpeed * Mathf.Sign(Input.GetAxis("Mouse ScrollWheel")));
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             xPos = Input.mousePosition.x;
         }
 
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonUp(1))
         {
 
             if(xPos - Input.mousePosition.x >= dragThreshold)
@@ -46,7 +47,7 @@ public class CameraController : MonoBehaviour
                     canRotate = false;
                     currentYrot -= 90f;
 
-                    transform.parent.DORotate(new Vector3(0,currentYrot,0), 0.5f).SetEase(Ease.OutSine).OnComplete(CanRotaateCam);
+                    transform.parent.DORotate(new Vector3(0,currentYrot,0), 0.5f).SetEase(rotationEase).OnComplete(CanRotaateCam);
                 }
                 Debug.Log("rotate Left");
             }
@@ -57,7 +58,7 @@ public class CameraController : MonoBehaviour
                     canRotate = false;
                     currentYrot += 90f;
 
-                    transform.parent.DORotate(new Vector3(0,currentYrot,0), 0.5f).SetEase(Ease.OutSine).OnComplete(CanRotaateCam);
+                    transform.parent.DORotate(new Vector3(0,currentYrot,0), 0.5f).SetEase(rotationEase).OnComplete(CanRotaateCam);
                 }
                 Debug.Log("rotate Right");
             }
@@ -74,7 +75,7 @@ public class CameraController : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            other.GetComponent<MeshRenderer>().enabled = false;
+            other.GetComponent<Wall>().Disapper();
         }
     }
 
@@ -82,7 +83,7 @@ public class CameraController : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            other.GetComponent<MeshRenderer>().enabled = true;
+            other.GetComponent<Wall>().Apper();
         }
     }
 

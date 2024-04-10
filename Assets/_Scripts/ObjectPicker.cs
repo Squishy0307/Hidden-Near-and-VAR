@@ -40,7 +40,9 @@ public class ObjectPicker : MonoBehaviour
 
     public void FoundAnObject(GameObject g)
     {
-        g.SetActive(false);
+        IntractableObject o = g.GetComponent<IntractableObject>();
+        o.ItemFound();
+
         ObjectTracker.Instance.objectFound(g);
     }
 }
