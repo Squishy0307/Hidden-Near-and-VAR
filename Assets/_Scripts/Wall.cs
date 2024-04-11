@@ -19,11 +19,11 @@ public class Wall : MonoBehaviour
 
         if (StartDisapper)
         {
-            dittherAmount = 0;
+            dittherAmount = 2;
         }
         else
         {
-            dittherAmount = 2;
+            dittherAmount = 0;
         }
     }
 
@@ -36,13 +36,13 @@ public class Wall : MonoBehaviour
     {
         DisapperTween.Kill();
         enableMesh();
-        AppearTween = DOTween.To(() => dittherAmount, x => dittherAmount = x, 2f, 0.35f);
+        AppearTween = DOTween.To(() => dittherAmount, x => dittherAmount = x, 0f, 0.35f);
     }
 
     public void Disapper()
     {
         AppearTween.Kill();
-        DisapperTween = DOTween.To(() => dittherAmount, x => dittherAmount = x, 0f, 0.35f).OnComplete(disableMesh);
+        DisapperTween = DOTween.To(() => dittherAmount, x => dittherAmount = x, 2f, 0.35f).OnComplete(disableMesh);
     }
 
     void enableMesh()
