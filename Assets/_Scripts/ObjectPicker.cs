@@ -10,6 +10,7 @@ public class ObjectPicker : MonoBehaviour
     private Camera cam;
     [SerializeField] LayerMask intractableLayer;
     [SerializeField] VisualEffect dust;
+    [SerializeField] VisualEffect starsVFX;
 
     void Start()
     {
@@ -28,9 +29,15 @@ public class ObjectPicker : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 500,intractableLayer))
             {
                 FoundAnObject(hit.transform.gameObject);
+
+                dust.transform.eulerAngles = hit.normal;
+                starsVFX.SendEvent("Fire1");
+                starsVFX.SetVector3("Pos", hit.point);
+                starsVFX.SetVector3("Rotation", hit.normal);
+                return;
             }
 
-            if(Physics.Raycast(ray, out hit2, 500))
+            if (Physics.Raycast(ray, out hit2, 500))
             {
                 dust.transform.eulerAngles = hit2.normal;
                 dust.SendEvent("Fire");
