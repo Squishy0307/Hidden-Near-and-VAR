@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Green Liquid
+  m_Name: WobbleLiquid
   m_Shader: {fileID: -6465566751694194690, guid: e0425c5d852201848824f5d4036bf892,
     type: 3}
   m_ValidKeywords: []
@@ -15,7 +15,7 @@ Material:
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2451
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -35,14 +35,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Liquid_Amount: 1
+    - _Liquid_Amount: 2.31
     - _QueueControl: 0
-    - _QueueOffset: 0
+    - _QueueOffset: 1
+    - _WobbleX: 0
     - _WobbleZ: 0
     m_Colors:
     - _Color: {r: 1, g: 0.24056602, b: 0.24056602, a: 0}
-    - _Color_Side: {r: 0.63065803, g: 2.612726, b: 0.360376, a: 1}
-    - _Color_Top: {r: 0.63075733, g: 1, b: 0.36130688, a: 1}
+    - _Color_Side: {r: 0, g: 2.2679937, b: 0.5896367, a: 1}
+    - _Color_Top: {r: 0.92660385, g: 9.832296, b: 1.3683103, a: 1}
     - _Liquid_Color: {r: 0.5468078, g: 1, b: 0.28773582, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6475845287450010699

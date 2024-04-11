@@ -32,8 +32,11 @@ public class ObjectPicker : MonoBehaviour
 
             if(Physics.Raycast(ray, out hit2, 500))
             {
+                dust.transform.eulerAngles = hit2.normal;
                 dust.SendEvent("Fire");
                 dust.SetVector3("Pos", hit2.point);
+                dust.SetVector3("Rotation", hit2.normal);
+
             }
         }
     }
