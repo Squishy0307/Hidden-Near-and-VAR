@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class CameraController : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] float wallDetectionRadius = 10f;
     [SerializeField] LayerMask wallLayer;
     [SerializeField] AnimationCurve rotationEase;
+
+    public UnityEvent onRotation;
 
     private void Start()
     {
@@ -48,8 +51,9 @@ public class CameraController : MonoBehaviour
                     currentYrot -= 90f;
 
                     transform.parent.DORotate(new Vector3(0,currentYrot,0), 0.5f).SetEase(rotationEase).OnComplete(CanRotaateCam);
+
+                    onRotation.Invoke();
                 }
-                Debug.Log("rotate Left");
             }
             else if(xPos - Input.mousePosition.x <= -dragThreshold)
             {
@@ -59,8 +63,9 @@ public class CameraController : MonoBehaviour
                     currentYrot += 90f;
 
                     transform.parent.DORotate(new Vector3(0,currentYrot,0), 0.5f).SetEase(rotationEase).OnComplete(CanRotaateCam);
+
+                    onRotation.Invoke();
                 }
-                Debug.Log("rotate Right");
             }
         }
 
