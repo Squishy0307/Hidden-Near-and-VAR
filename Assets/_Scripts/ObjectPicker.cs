@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
-using DG.Tweening;
-using UnityEngine.VFX;
 
 public class ObjectPicker : MonoBehaviour
 {
@@ -34,10 +32,6 @@ public class ObjectPicker : MonoBehaviour
                 s.transform.LookAt(cam.transform);
                 Destroy(s,2f);
 
-                //dust.transform.eulerAngles = hit.normal;
-                //starsVFX.SendEvent("Fire1");
-                //starsVFX.SetVector3("Pos", hit.point);
-                //starsVFX.SetVector3("Rotation", hit.normal);
                 return;
             }
 
@@ -47,10 +41,11 @@ public class ObjectPicker : MonoBehaviour
                 d.transform.LookAt(cam.transform);
                 Destroy(d, 2f);
 
-                //dust.transform.eulerAngles = hit2.normal;
-                //dust.SendEvent("Fire");
-                //dust.SetVector3("Pos", hit2.point);
-                //dust.SetVector3("Rotation", hit2.normal);
+                IntractableObject obj;
+                if (hit2.transform.TryGetComponent<IntractableObject>(out obj))
+                {
+                    obj.ItemIntracted();
+                }
 
             }
         }
@@ -59,7 +54,8 @@ public class ObjectPicker : MonoBehaviour
     public void FoundAnObject(GameObject g)
     {
         IntractableObject o = g.GetComponent<IntractableObject>();
-        o.ItemFound();
+        //o.ItemFound();
+        o.ItemIntracted();
 
         ObjectTracker.Instance.objectFound(g);
     }

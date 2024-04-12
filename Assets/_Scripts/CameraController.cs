@@ -78,7 +78,7 @@ public class CameraController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ignore Raycast"))
         {
             other.GetComponent<Wall>().Disapper();
         }
@@ -86,7 +86,7 @@ public class CameraController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ignore Raycast"))
         {
             other.GetComponent<Wall>().Apper();
         }

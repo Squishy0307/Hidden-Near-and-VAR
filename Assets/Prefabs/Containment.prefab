@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxWobble: 0.03
   WobbleSpeed: 1
-  Recovery: 1
+  Recovery: 2
 --- !u!1 &8342657027353465072
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,6 +110,8 @@ GameObject:
   - component: {fileID: 797499452333873302}
   - component: {fileID: 6655912761193729826}
   - component: {fileID: 2390203627263956640}
+  - component: {fileID: 8022585057980554899}
+  - component: {fileID: 5723752896175552478}
   m_Layer: 0
   m_Name: ContainmentGlass
   m_TagString: Untagged
@@ -182,6 +184,60 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &8022585057980554899
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8342657027353465072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.5793693
+  m_Height: 6.4319024
+  m_Direction: 1
+  m_Center: {x: 0.00000023841858, y: 5.5026426, z: 0}
+--- !u!114 &5723752896175552478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8342657027353465072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb20e24c28a43540a4f4f87a3c4382e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpScale: 0.65
+  onIntract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3756825561320277339}
+        m_TargetAssemblyTypeName: Wobble, Assembly-CSharp
+        m_MethodName: EmptyContainer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8022585057980554899}
+        m_TargetAssemblyTypeName: UnityEngine.CapsuleCollider, UnityEngine
+        m_MethodName: set_radius
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8613490591215165430
 GameObject:
   m_ObjectHideFlags: 0

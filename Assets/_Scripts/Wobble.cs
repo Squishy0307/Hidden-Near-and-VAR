@@ -23,10 +23,15 @@ public class Wobble : MonoBehaviour
     float time = 0.5f;
     bool isWobbling = false;
 
+    bool isEmpty = false;
+    private float fillAmount;
+
     // Use this for initialization
     void Start()
     {
         rend = GetComponent<Renderer>();
+
+        fillAmount = rend.material.GetFloat("_Liquid_Amount");
     }
     private void Update()
     {
@@ -56,6 +61,9 @@ public class Wobble : MonoBehaviour
         // keep last position
         lastPos = transform.position * wobble;
         lastRot = transform.rotation.eulerAngles * wobble;
+
+        //set fill amount
+        rend.material.SetFloat("_Liquid_Amount", fillAmount);
     }
 
     public void CamRotationWobble()
@@ -69,5 +77,15 @@ public class Wobble : MonoBehaviour
     void wobbleComplete()
     {
         isWobbling = false;
+    }
+
+    public void EmptyContainer()
+    {
+        if (!isEmpty)
+        {
+            isEmpty = true;
+
+            DOTween.To(() => fillAmount, x => fillAmount = x, 0.62f, 3f);
+        }
     }
 }
