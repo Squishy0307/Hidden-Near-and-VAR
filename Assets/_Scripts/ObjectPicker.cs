@@ -9,8 +9,8 @@ public class ObjectPicker : MonoBehaviour
 {
     private Camera cam;
     [SerializeField] LayerMask intractableLayer;
-    [SerializeField] VisualEffect dust;
-    [SerializeField] VisualEffect starsVFX;
+    [SerializeField] GameObject dust;
+    [SerializeField] GameObject starsVFX;
 
     void Start()
     {
@@ -30,19 +30,27 @@ public class ObjectPicker : MonoBehaviour
             {
                 FoundAnObject(hit.transform.gameObject);
 
-                dust.transform.eulerAngles = hit.normal;
-                starsVFX.SendEvent("Fire1");
-                starsVFX.SetVector3("Pos", hit.point);
-                starsVFX.SetVector3("Rotation", hit.normal);
+                GameObject s = Instantiate(starsVFX,hit.point, Quaternion.identity);
+                s.transform.LookAt(cam.transform);
+                Destroy(s,2f);
+
+                //dust.transform.eulerAngles = hit.normal;
+                //starsVFX.SendEvent("Fire1");
+                //starsVFX.SetVector3("Pos", hit.point);
+                //starsVFX.SetVector3("Rotation", hit.normal);
                 return;
             }
 
             if (Physics.Raycast(ray, out hit2, 500))
             {
-                dust.transform.eulerAngles = hit2.normal;
-                dust.SendEvent("Fire");
-                dust.SetVector3("Pos", hit2.point);
-                dust.SetVector3("Rotation", hit2.normal);
+                GameObject d = Instantiate(dust, hit2.point, Quaternion.identity);
+                d.transform.LookAt(cam.transform);
+                Destroy(d, 2f);
+
+                //dust.transform.eulerAngles = hit2.normal;
+                //dust.SendEvent("Fire");
+                //dust.SetVector3("Pos", hit2.point);
+                //dust.SetVector3("Rotation", hit2.normal);
 
             }
         }

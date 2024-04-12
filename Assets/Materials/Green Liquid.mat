@@ -38,6 +38,7 @@ Material:
     - _Liquid_Amount: 1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _WobbleX: 0
     - _WobbleZ: 0
     m_Colors:
     - _Color: {r: 1, g: 0.24056602, b: 0.24056602, a: 0}
