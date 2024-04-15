@@ -19,12 +19,16 @@ public class CameraController : MonoBehaviour
     [SerializeField] float wallDetectionRadius = 10f;
     [SerializeField] LayerMask wallLayer;
     [SerializeField] AnimationCurve rotationEase;
-
+    [SerializeField] SphereCollider sphereCol;
+    float radius;
+    [SerializeField] float maxRadius = 21;
+    [SerializeField] float minRadius = 7;
     public UnityEvent onRotation;
 
     private void Start()
     {
-         cam = GetComponent<Camera>();
+        cam = GetComponent<Camera>();
+        radius = sphereCol.radius;
     }
 
     void Update()
@@ -34,6 +38,8 @@ public class CameraController : MonoBehaviour
         float translate = Mathf.Min(Mathf.Abs(Input.GetAxis("Mouse ScrollWheel")), MaxToClamp - Mathf.Abs(ZoomAmount));
         gameObject.transform.Translate(0, 0, translate * ROTSpeed * Mathf.Sign(Input.GetAxis("Mouse ScrollWheel")));
 
+        radius = Mathf.Lerp(maxRadius,minRadius, ZoomAmount);
+        sphereCol.radius = radius;
 
         if (Input.GetMouseButtonDown(1))
         {
