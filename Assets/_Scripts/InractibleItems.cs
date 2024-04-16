@@ -8,6 +8,7 @@ public class InractibleItems : MonoBehaviour
     [SerializeField] Transform TrashCan;
     [SerializeField] Transform Behive;
     [SerializeField] Transform SinkWater;
+    [SerializeField] Transform bonfireParticles;
 
     public void TrashCanFall()
     {
@@ -37,5 +38,14 @@ public class InractibleItems : MonoBehaviour
         b.Append(Behive.DORotate(new Vector3(0, -180, 45), 0.3f).SetEase(Ease.OutSine));
         b.Append(Behive.DORotate(new Vector3(0, -180, -25), 0.4f).SetEase(Ease.OutSine));
         b.Append(Behive.DORotate(new Vector3(0, -180, 0), 0.2f).SetEase(Ease.OutSine));
+    }
+
+    public void BonfireShake()
+    {
+        Sequence b = DOTween.Sequence();
+
+        b.Append(bonfireParticles.DORotate(new Vector3(-140f, 0, 0), 0.3f).SetEase(Ease.OutSine));
+        b.Append(bonfireParticles.DORotate(new Vector3(-40, 0, 0), 0.4f).SetEase(Ease.OutSine));
+        b.Append(bonfireParticles.DORotate(new Vector3(-90, 0, 0), 0.2f).SetEase(Ease.OutSine));
     }
 }
