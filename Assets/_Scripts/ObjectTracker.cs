@@ -9,13 +9,14 @@ public class ObjectTracker : MonoBehaviour
 {
     public static ObjectTracker Instance;
     public GameObject itemsText;
+    public RectTransform LevelCompleteUI;
     public Transform itemsTextHolderCanvas;
     public List<GameObject> objectToFind;
 
     void Start()
     {
         Instance = this;
-        Vector3 pos = new Vector3(0, 480, 0); 
+        Vector3 pos = new Vector3(0, 425, 0); 
 
         for (int i = 0; i < objectToFind.Count; i++)
         {
@@ -53,6 +54,9 @@ public class ObjectTracker : MonoBehaviour
         if (objectToFind.Count <= 0)
         {
             Debug.Log("All Object found");
+            LevelCompleteUI.DOLocalMoveY(0, 0.6f).SetEase(Ease.OutSine);
+            itemsTextHolderCanvas.gameObject.SetActive(false);
+            audio_manager.Instance.Play("LevelComplete");
         }
     }
 }

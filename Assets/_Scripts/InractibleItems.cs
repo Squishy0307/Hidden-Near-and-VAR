@@ -27,7 +27,6 @@ public class InractibleItems : MonoBehaviour
 
     public void SinkFilled()
     {
-        Debug.Log("HAJKSDH");
         SinkWater.DOLocalMoveY(2.7f, 1.5f).SetEase(Ease.OutSine);
     }
 }

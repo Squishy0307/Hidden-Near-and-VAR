@@ -32,6 +32,8 @@ public class ObjectPicker : MonoBehaviour
                 s.transform.LookAt(cam.transform);
                 Destroy(s,2f);
 
+                audio_manager.Instance.Play("ItemFound");
+
                 return;
             }
 
@@ -46,6 +48,8 @@ public class ObjectPicker : MonoBehaviour
                 {
                     obj.ItemIntracted();
                 }
+
+                audio_manager.Instance.Play("Bloop");
 
             }
         }
