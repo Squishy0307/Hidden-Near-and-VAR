@@ -35,15 +35,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Liquid_Amount: 1
+    - _Liquid_Amount: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
     - _WobbleX: 0
     - _WobbleZ: 0
     m_Colors:
     - _Color: {r: 1, g: 0.24056602, b: 0.24056602, a: 0}
-    - _Color_Side: {r: 0.63065803, g: 2.612726, b: 0.360376, a: 1}
-    - _Color_Top: {r: 0.63075733, g: 1, b: 0.36130688, a: 1}
+    - _Color_Side: {r: 0.29941854, g: 1.216786, b: 0.1720064, a: 1}
+    - _Color_Top: {r: 5.4135065, g: 8.574187, b: 3.0934324, a: 1}
     - _Liquid_Color: {r: 0.5468078, g: 1, b: 0.28773582, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6475845287450010699

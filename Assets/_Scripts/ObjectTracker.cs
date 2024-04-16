@@ -16,7 +16,7 @@ public class ObjectTracker : MonoBehaviour
     void Start()
     {
         Instance = this;
-        Vector3 pos = new Vector3(0, 425, 0); 
+        Vector3 pos = new Vector3(0, 555, 0); 
 
         for (int i = 0; i < objectToFind.Count; i++)
         {
