@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 5993677405870155445}
   - component: {fileID: 7242362476680177936}
   - component: {fileID: 4856847445800459738}
+  - component: {fileID: 476381803617742111}
   m_Layer: 0
   m_Name: BottleBrokenBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5993677405870155445
 Transform:
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &476381803617742111
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369780324340907023}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5500466414120182291, guid: 9510256c5b3e3c949bdfeaeb93de9ad2, type: 3}

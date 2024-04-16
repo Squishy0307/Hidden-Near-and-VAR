@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 1482042120754512951}
   - component: {fileID: 2539641931834739602}
   - component: {fileID: 349708092585459544}
+  - component: {fileID: -1304318599685043819}
   m_Layer: 0
   m_Name: Goblet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1482042120754512951
 Transform:
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-1304318599685043819
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2295311717175729805}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9199936500148611727, guid: 9557af83c2c2c6f469211795cd1fc962, type: 3}
 --- !u!1 &8232768620852697776
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +115,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4581155735531699595
 Transform:
