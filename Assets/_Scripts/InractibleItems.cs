@@ -29,4 +29,13 @@ public class InractibleItems : MonoBehaviour
     {
         SinkWater.DOLocalMoveY(2.7f, 1.5f).SetEase(Ease.OutSine);
     }
+
+    public void shakeBehive()
+    {
+        Sequence b = DOTween.Sequence();
+
+        b.Append(Behive.DORotate(new Vector3(0, -180, 45), 0.3f).SetEase(Ease.OutSine));
+        b.Append(Behive.DORotate(new Vector3(0, -180, -25), 0.4f).SetEase(Ease.OutSine));
+        b.Append(Behive.DORotate(new Vector3(0, -180, 0), 0.2f).SetEase(Ease.OutSine));
+    }
 }
