@@ -52,11 +52,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BendControl: 0.1
     - _Float: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Wind_Density: 5.25
     - _Wind_Spd: 0.5
     - _Wind_Strength: 0.07
-    m_Colors: []
+    m_Colors:
+    - _Direction: {r: 0, g: 15, b: 0, a: 0}
   m_BuildTextureStacks: []
