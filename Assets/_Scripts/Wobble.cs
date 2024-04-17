@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class Wobble : MonoBehaviour
 {
-    float wobble = 1;
+    [SerializeField] float wobble = 1;
 
     Renderer rend;
     Vector3 lastPos;
